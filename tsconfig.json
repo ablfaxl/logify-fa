@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES5", // Modern JavaScript features, adjust based on compatibility needs
-    "module": "ESNext", // Use ES modules, suitable for both browser and Node.js
+    "target": "ES6", // ES6 (ES2015) to use modern JavaScript features
+    "module": "ESNext", // Use ES modules
     "moduleResolution": "node", // Resolve modules like Node.js
-    "lib": ["ES2020", "DOM"], // Include DOM library for browser-specific features
+    "lib": ["ES2015", "DOM"], // Include libraries for both browser and Node.js
     "declaration": true, // Generate declaration files (.d.ts)
     "declarationMap": true, // Generate source maps for declaration files
     "sourceMap": true, // Generate source maps for the JavaScript files
