@@ -1,52 +1,53 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const chalk = require("chalk");
-const jalaali = require("jalaali-js");
-class Logger {
-    level;
-    levelsOrder = ["debug", "info", "warn", "error"];
-    colors = {
-        debug: chalk.blue,
-        info: chalk.green,
-        warn: chalk.yellow,
-        error: chalk.red,
-    };
-    constructor(level = "info") {
+var chalk = require("chalk");
+var jalaali = require("jalaali-js");
+var Logger = /** @class */ (function () {
+    function Logger(level) {
+        if (level === void 0) { level = "info"; }
+        this.levelsOrder = ["debug", "info", "warn", "error"];
+        this.colors = {
+            debug: chalk.blue,
+            info: chalk.green,
+            warn: chalk.yellow,
+            error: chalk.red,
+        };
         this.level = level;
     }
-    getPersianDate() {
-        const now = new Date();
-        const { jy, jm, jd } = jalaali.toJalaali(now);
-        return `${jy}-${jm}-${jd}`;
-    }
-    log(level, message, meta) {
+    Logger.prototype.getPersianDate = function () {
+        var now = new Date();
+        var _a = jalaali.toJalaali(now), jy = _a.jy, jm = _a.jm, jd = _a.jd;
+        return "".concat(jy, "-").concat(jm, "-").concat(jd);
+    };
+    Logger.prototype.log = function (level, message, meta) {
         if (this.shouldLog(level)) {
-            const logMessage = {
-                level,
-                message,
-                meta,
+            var logMessage = {
+                level: level,
+                message: message,
+                meta: meta,
                 timestamp: this.getPersianDate(),
             };
-            const color = this.colors[level] || ((msg) => msg);
-            const coloredMessage = color(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
+            var color = this.colors[level] || (function (msg) { return msg; });
+            var coloredMessage = color("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
             console.log(coloredMessage, logMessage.meta);
         }
-    }
-    shouldLog(level) {
+    };
+    Logger.prototype.shouldLog = function (level) {
         return (this.levelsOrder.indexOf(level) >= this.levelsOrder.indexOf(this.level));
-    }
-    debug(message, meta) {
+    };
+    Logger.prototype.debug = function (message, meta) {
         this.log("debug", message, meta);
-    }
-    info(message, meta) {
+    };
+    Logger.prototype.info = function (message, meta) {
         this.log("info", message, meta);
-    }
-    warn(message, meta) {
+    };
+    Logger.prototype.warn = function (message, meta) {
         this.log("warn", message, meta);
-    }
-    error(message, meta) {
+    };
+    Logger.prototype.error = function (message, meta) {
         this.log("error", message, meta);
-    }
-}
-const serverLogger = new Logger("debug");
+    };
+    return Logger;
+}());
+var serverLogger = new Logger("debug");
 exports.default = serverLogger;
