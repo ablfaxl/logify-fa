@@ -1,5 +1,5 @@
-const chalk = require("chalk");
-const jalaali = require("jalaali-js");
+import chalk from "chalk";
+import jalaali from "jalaali-js";
 
 type LogLevel = "debug" | "info" | "warn" | "error";
 

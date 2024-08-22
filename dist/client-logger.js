@@ -1,8 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Logger = void 0;
-var chalk = require("chalk");
-var jalaali = require("jalaali-js");
+var chalk_1 = __importDefault(require("chalk"));
+var jalaali_js_1 = __importDefault(require("jalaali-js"));
 var Logger = /** @class */ (function () {
     function Logger(level) {
         if (level === void 0) { level = "info"; }
@@ -10,7 +13,7 @@ var Logger = /** @class */ (function () {
     }
     Logger.prototype.getPersianDate = function () {
         var now = new Date();
-        var _a = jalaali.toJalaali(now), jy = _a.jy, jm = _a.jm, jd = _a.jd;
+        var _a = jalaali_js_1.default.toJalaali(now), jy = _a.jy, jm = _a.jm, jd = _a.jd;
         return "".concat(jy, "-").concat(jm, "-").concat(jd);
     };
     Logger.prototype.log = function (level, message, meta) {
@@ -25,16 +28,16 @@ var Logger = /** @class */ (function () {
             var coloredMessage = void 0;
             switch (level) {
                 case "debug":
-                    coloredMessage = chalk.blue("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk_1.default.blue("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 case "info":
-                    coloredMessage = chalk.green("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk_1.default.green("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 case "warn":
-                    coloredMessage = chalk.yellow("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk_1.default.yellow("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 case "error":
-                    coloredMessage = chalk.red("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk_1.default.red("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 default:
                     coloredMessage = "[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message);
