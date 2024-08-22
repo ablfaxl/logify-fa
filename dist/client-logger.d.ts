@@ -9,6 +9,6 @@ export declare class Logger<T = unknown> {
     warn(message: string, meta?: T): void;
     error(message: string, meta?: T): void;
 }
-declare const serverLogger: Logger<unknown>;
-export default serverLogger;
+declare const clientLogger: Logger<unknown>;
+export default clientLogger;
 //# sourceMappingURL=client-logger.d.ts.map

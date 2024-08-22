@@ -56,5 +56,5 @@ class Logger {
     }
 }
 exports.Logger = Logger;
-const serverLogger = new Logger("debug");
-exports.default = serverLogger;
+const clientLogger = new Logger("debug");
+exports.default = clientLogger;

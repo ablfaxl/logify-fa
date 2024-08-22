@@ -90,5 +90,5 @@ export class Logger<T = unknown> {
   }
 }
 
-const serverLogger = new Logger("debug");
-export default serverLogger;
+const clientLogger = new Logger("debug");
+export default clientLogger;
