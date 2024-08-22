@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Logger = void 0;
 const chalk = require("chalk");
 const jalaali = require("jalaali-js");
 class Logger {
@@ -54,5 +55,6 @@ class Logger {
         this.log("error", message, meta);
     }
 }
+exports.Logger = Logger;
 const serverLogger = new Logger("debug");
 exports.default = serverLogger;

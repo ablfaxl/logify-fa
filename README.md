@@ -1,18 +1,18 @@
-# Logify
+# Logify-fa
 
-Logify is a lightweight logger package for Node.js and browser applications, supporting color-coded log levels and Persian date formatting.
+logify-fa is a lightweight logger package for Node.js and browser applications, supporting color-coded log levels and Persian date formatting.
 
 ## Installation
 
 ```bash
-npm install logify
+npm install logify-fa
 ```
 
 Usage
 Basic Example
 
 ```bash
-import logger from 'logify';
+import logger from 'logify-fa';
 
 // Log messages
 logger.info("This is an info message");
@@ -21,7 +21,7 @@ logger.error("This is an error message");
 ```
 
 Log Levels
-Logify supports the following log levels:
+logify-fa supports the following log levels:
 
 debug
 info

@@ -1,5 +1,5 @@
 {
-  "name": "logify",
+  "name": "logify-fa",
   "version": "1.0.0",
   "author": "ablfaxl",
   "main": "dist/index.js",
@@ -29,13 +29,13 @@
     "persian-date"
   ],
   "license": "ISC",
-  "description": "Logify is a lightweight, color-coded logging utility for Node.js and browser applications, supporting Persian date formatting.",
+  "description": "logify-fa is a lightweight, color-coded logging utility for Node.js and browser applications, supporting Persian date formatting.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ablfaxl/logify"
+    "url": "https://github.com/ablfaxl/logify-fa"
   },
   "bugs": {
-    "url": "https://github.com/ablfaxl/logify/issues"
+    "url": "https://github.com/ablfaxl/logify-fa/issues"
   },
-  "homepage": "https://github.com/ablfaxl/logify#readme"
+  "homepage": "https://github.com/ablfaxl/logify-fa#readme"
 }
