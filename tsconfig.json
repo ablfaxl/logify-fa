@@ -1,20 +1,21 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "incremental": false,
-    "isolatedModules": true,
-    "lib": ["es6", "dom"],
-    "module": "CommonJS",
-    "noUncheckedIndexedAccess": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ES5",
-    "outDir": "dist",
-    "rootDir": "src"
+    "target": "ES2020", // Modern JavaScript features, adjust based on compatibility needs
+    "module": "ESNext", // Use ES modules, suitable for both browser and Node.js
+    "moduleResolution": "node", // Resolve modules like Node.js
+    "lib": ["ES2020", "DOM"], // Include DOM library for browser-specific features
+    "declaration": true, // Generate declaration files (.d.ts)
+    "declarationMap": true, // Generate source maps for declaration files
+    "sourceMap": true, // Generate source maps for the JavaScript files
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src", // Root directory of your source files
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enable compatibility with CommonJS modules
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "resolveJsonModule": true, // Allow importing .json files
+    "allowSyntheticDefaultImports": true // Allow default imports from modules with no default export
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*"], // Include all files in the src directory
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist directories
 }

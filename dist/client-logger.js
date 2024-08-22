@@ -1,64 +1,56 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Logger = void 0;
-var chalk_1 = __importDefault(require("chalk"));
-var jalaali_js_1 = __importDefault(require("jalaali-js"));
-var Logger = /** @class */ (function () {
-    function Logger(level) {
-        if (level === void 0) { level = "info"; }
+import chalk from "chalk";
+import jalaali from "jalaali-js";
+export class Logger {
+    constructor(level = "info") {
         this.level = level;
     }
-    Logger.prototype.getPersianDate = function () {
-        var now = new Date();
-        var _a = jalaali_js_1.default.toJalaali(now), jy = _a.jy, jm = _a.jm, jd = _a.jd;
-        return "".concat(jy, "-").concat(jm, "-").concat(jd);
-    };
-    Logger.prototype.log = function (level, message, meta) {
-        var levelsOrder = ["debug", "info", "warn", "error"];
+    getPersianDate() {
+        const now = new Date();
+        const { jy, jm, jd } = jalaali.toJalaali(now);
+        return `${jy}-${jm}-${jd}`;
+    }
+    log(level, message, meta) {
+        const levelsOrder = ["debug", "info", "warn", "error"];
         if (levelsOrder.indexOf(level) >= levelsOrder.indexOf(this.level)) {
-            var logMessage = {
-                level: level,
-                message: message,
-                meta: meta,
+            const logMessage = {
+                level,
+                message,
+                meta,
                 timestamp: this.getPersianDate(),
             };
-            var coloredMessage = void 0;
+            let coloredMessage;
             switch (level) {
                 case "debug":
-                    coloredMessage = chalk_1.default.blue("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk.blue(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
                     break;
                 case "info":
-                    coloredMessage = chalk_1.default.green("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk.green(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
                     break;
                 case "warn":
-                    coloredMessage = chalk_1.default.yellow("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk.yellow(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
                     break;
                 case "error":
-                    coloredMessage = chalk_1.default.red("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
+                    coloredMessage = chalk.red(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
                     break;
                 default:
-                    coloredMessage = "[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message);
+                    coloredMessage = `[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`;
             }
             console.log(coloredMessage, logMessage.meta);
         }
-    };
-    Logger.prototype.debug = function (message, meta) {
+    }
+    debug(message, meta) {
         this.log("debug", message, meta);
-    };
-    Logger.prototype.info = function (message, meta) {
+    }
+    info(message, meta) {
         this.log("info", message, meta);
-    };
-    Logger.prototype.warn = function (message, meta) {
+    }
+    warn(message, meta) {
         this.log("warn", message, meta);
-    };
-    Logger.prototype.error = function (message, meta) {
+    }
+    error(message, meta) {
         this.log("error", message, meta);
-    };
-    return Logger;
-}());
-exports.Logger = Logger;
-var clientLogger = new Logger("debug");
-exports.default = clientLogger;
+    }
+}
+const clientLogger = new Logger("debug");
+export default clientLogger;
+//# sourceMappingURL=client-logger.js.map
