@@ -1,56 +1,59 @@
 import chalk from "chalk";
 import jalaali from "jalaali-js";
-export class Logger {
-    constructor(level = "info") {
+var Logger = /** @class */ (function () {
+    function Logger(level) {
+        if (level === void 0) { level = "info"; }
         this.level = level;
     }
-    getPersianDate() {
-        const now = new Date();
-        const { jy, jm, jd } = jalaali.toJalaali(now);
-        return `${jy}-${jm}-${jd}`;
-    }
-    log(level, message, meta) {
-        const levelsOrder = ["debug", "info", "warn", "error"];
+    Logger.prototype.getPersianDate = function () {
+        var now = new Date();
+        var _a = jalaali.toJalaali(now), jy = _a.jy, jm = _a.jm, jd = _a.jd;
+        return "".concat(jy, "-").concat(jm, "-").concat(jd);
+    };
+    Logger.prototype.log = function (level, message, meta) {
+        var levelsOrder = ["debug", "info", "warn", "error"];
         if (levelsOrder.indexOf(level) >= levelsOrder.indexOf(this.level)) {
-            const logMessage = {
-                level,
-                message,
-                meta,
+            var logMessage = {
+                level: level,
+                message: message,
+                meta: meta,
                 timestamp: this.getPersianDate(),
             };
-            let coloredMessage;
+            var coloredMessage = void 0;
             switch (level) {
                 case "debug":
-                    coloredMessage = chalk.blue(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
+                    coloredMessage = chalk.blue("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 case "info":
-                    coloredMessage = chalk.green(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
+                    coloredMessage = chalk.green("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 case "warn":
-                    coloredMessage = chalk.yellow(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
+                    coloredMessage = chalk.yellow("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 case "error":
-                    coloredMessage = chalk.red(`[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`);
+                    coloredMessage = chalk.red("[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message));
                     break;
                 default:
-                    coloredMessage = `[${logMessage.timestamp}] [${logMessage.level.toUpperCase()}]: ${logMessage.message}`;
+                    coloredMessage = "[".concat(logMessage.timestamp, "] [").concat(logMessage.level.toUpperCase(), "]: ").concat(logMessage.message);
             }
             console.log(coloredMessage, logMessage.meta);
         }
-    }
-    debug(message, meta) {
+    };
+    Logger.prototype.debug = function (message, meta) {
         this.log("debug", message, meta);
-    }
-    info(message, meta) {
+    };
+    Logger.prototype.info = function (message, meta) {
         this.log("info", message, meta);
-    }
-    warn(message, meta) {
+    };
+    Logger.prototype.warn = function (message, meta) {
         this.log("warn", message, meta);
-    }
-    error(message, meta) {
+    };
+    Logger.prototype.error = function (message, meta) {
         this.log("error", message, meta);
-    }
-}
-const clientLogger = new Logger("debug");
+    };
+    return Logger;
+}());
+export { Logger };
+var clientLogger = new Logger("debug");
 export default clientLogger;
 //# sourceMappingURL=client-logger.js.map

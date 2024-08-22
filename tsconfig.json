@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2020", // Modern JavaScript features, adjust based on compatibility needs
+    "target": "ES5", // Modern JavaScript features, adjust based on compatibility needs
     "module": "ESNext", // Use ES modules, suitable for both browser and Node.js
     "moduleResolution": "node", // Resolve modules like Node.js
     "lib": ["ES2020", "DOM"], // Include DOM library for browser-specific features
