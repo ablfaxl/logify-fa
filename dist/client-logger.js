@@ -53,7 +53,6 @@ var Logger = /** @class */ (function () {
     };
     return Logger;
 }());
-export { Logger };
 var clientLogger = new Logger("debug");
 export default clientLogger;
 //# sourceMappingURL=client-logger.js.map

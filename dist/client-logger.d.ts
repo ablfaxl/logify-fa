@@ -1,5 +1,5 @@
 type LogLevel = "debug" | "info" | "warn" | "error";
-export declare class Logger<T = unknown> {
+declare class Logger<T = unknown> {
     private level;
     constructor(level?: LogLevel);
     private getPersianDate;

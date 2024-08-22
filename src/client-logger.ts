@@ -9,8 +9,7 @@ interface LogMessage<T = unknown> {
   meta?: T;
   timestamp: string;
 }
-
-export class Logger<T = unknown> {
+class Logger<T = unknown> {
   private level: LogLevel;
 
   constructor(level: LogLevel = "info") {
