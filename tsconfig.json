@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6", // ES6 (ES2015) to use modern JavaScript features
-    "module": "ESNext", // Use ES modules
+    "module": "CommonJS", // Use ES modules
     "moduleResolution": "node", // Resolve modules like Node.js
     "lib": ["ES2015", "DOM"], // Include libraries for both browser and Node.js
     "declaration": true, // Generate declaration files (.d.ts)
@@ -13,7 +13,7 @@
     "esModuleInterop": true, // Enable compatibility with CommonJS modules
     "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
     "skipLibCheck": true, // Skip type checking of declaration files
-    "resolveJsonModule": true, // Allow importing .json files
+    "resolveJsonModule": true, // Allow importing .json files¯
     "allowSyntheticDefaultImports": true // Allow default imports from modules with no default export
   },
   "include": ["src/**/*"], // Include all files in the src directory
