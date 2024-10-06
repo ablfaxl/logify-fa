@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES6", // ES6 (ES2015) to use modern JavaScript features
-    "module": "CommonJS", // Use ES modules
-    "moduleResolution": "node", // Resolve modules like Node.js
-    "lib": ["ES2015", "DOM"], // Include libraries for both browser and Node.js
-    "declaration": true, // Generate declaration files (.d.ts)
-    "declarationMap": true, // Generate source maps for declaration files
-    "sourceMap": true, // Generate source maps for the JavaScript files
-    "outDir": "./dist", // Output directory for compiled files
-    "rootDir": "./src", // Root directory of your source files
-    "strict": true, // Enable all strict type-checking options
-    "esModuleInterop": true, // Enable compatibility with CommonJS modules
-    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "resolveJsonModule": true, // Allow importing .json files¯
-    "allowSyntheticDefaultImports": true // Allow default imports from modules with no default export
+    "target": "es5", // Set target JavaScript version
+    "module": "CommonJS", // Use common module system compatible with Node.js
+    "outDir": "./dist", // Directory to output the compiled JavaScript files
+    "rootDir": "./src", // Root directory of your TypeScript files
+    "declaration": true, // Generates corresponding '.d.ts' files for the compiled JavaScript
+    "sourceMap": true, // Generates source map files for debugging
+    "esModuleInterop": true, // Enables ES6-compatible imports
+    "strict": true // Enable all strict type-checking options
   },
-  "include": ["src/**/*"], // Include all files in the src directory
-  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist directories
+  "exclude": ["node_modules"], // Exclude node_modules from compilation
+  "include": [
+    "src/**/*" // Include all files in the src directory
+  ]
 }

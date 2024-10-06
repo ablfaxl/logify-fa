@@ -1,7 +1,5 @@
-import winston from "winston";
 declare const createLogger: (options?: {
     level?: string;
     filename?: string;
-}) => winston.Logger;
+}) => any;
 export default createLogger;
-//# sourceMappingURL=logger.d.ts.map
