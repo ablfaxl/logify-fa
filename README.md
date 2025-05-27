@@ -1,100 +1,91 @@
-# Logify-fa
+Logify-fa
+Logify-fa is a lightweight logging library for Node.js applications, featuring color-coded log levels and Persian (Jalaali) date formatting. It provides a simple, customizable way to log messages with consistent formatting across your projects.
+Features
 
-Logify-fa is a powerful yet lightweight logging library designed for both Node.js and browser applications. It features color-coded log levels, customizable log messages, supports Persian (Jalaali) date formatting, and includes file logging capabilities. This package makes it easier to maintain consistent and informative logs across different environments.
+Color-Coded Log Levels: Easily identify log messages with color-coded output (cyan for info, yellow for warn, red for error, magenta for debug).
+Persian Date Formatting: Logs include timestamps in the Persian (Jalaali) calendar format.
+Customizable Colors: Enable or disable color output for logs.
+TypeScript Support: Fully typed with TypeScript for a better developer experience.
+Lightweight and Simple: Minimal dependencies and straightforward API for logging.
 
-## Features
-
-- **Color-Coded Log Levels**: Quickly identify log levels with color-coded messages.
-- **Persian Date Formatting**: Automatically includes Persian (Jalaali) dates in log messages.
-- **Customizable Log Levels**: Control which log levels are shown based on your environment.
-- **Support for Metadata**: Attach additional information to log messages to provide more context.
-- **File Logging**: Logs are automatically saved to a file in the `logger` directory, ensuring that you have persistent log records.
-- **Universal Compatibility**: Works seamlessly in both Node.js and browser environments.
-
-## Installation
-
-You can install Logify-fa via npm:
-
-```bash
+Installation
+Install Logify-fa via npm:
 npm install logify-fa
-```
 
-Or using yarn:
-
-```bash
+Or using Yarn:
 yarn add logify-fa
-```
+
 Or using pnpm:
-
-```bash
 pnpm install logify-fa
-```
 
-## Usage
-### Creating Logger Instances
+Usage
+Basic Logging
+Import and use the default logger instance:
+import { logger } from 'logify-fa';
 
-Import the factory function and create logger instances with custom settings:
+logger.info('This is an info message');
+logger.warn('This is a warning message');
+logger.error('This is an error message');
+logger.debug('This is a debug message');
 
-```ecmascript 6
-import createLogger from 'logify-fa';
+Example output (with colors enabled):
+[1404/03/06 13:28:45] [INFO] This is an info message
+[1404/03/06 13:28:45] [WARN] This is a warning message
+[1404/03/06 13:28:45] [ERROR] This is an error message
+[1404/03/06 13:28:45] [DEBUG] This is a debug message
 
-const logger = createLogger({
-    level: 'debug', // Minimum log level to capture
-    filename: 'path/to/your/logs.log' // File to save the logs
-});
+Custom Logger Instance
+Create a custom logger instance with configurable color output:
+import { LogifyFa } from 'logify-fa';
 
-// Example of logging
-logger.info("This is an info message with Persian date");
-logger.error("This is an error message with Persian date");
+const logger = new LogifyFa(false); // Disable colors
+logger.info('This is an info message without colors');
 
-```
+Log Levels
+Logify-fa supports four log levels:
 
-### Log Levels
+debug: Magenta (for debugging details)
+info: Cyan (for informational messages)
+warn: Yellow (for warnings)
+error: Red (for errors)
 
-#### Logify-fa supports four log levels, each with its own color for easy identification:
+Configuration
 
-- debug: Blue
-- info: Green
-- warn: Yellow
-- error: Red
+Color Output: Pass true (default) or false to the LogifyFa constructor to enable or disable colorized logs.const coloredLogger = new LogifyFa(true); // Colorized logs
+const plainLogger = new LogifyFa(false); // Plain text logs
 
-### Logging with Metadata
+Planned Features
+The following features are planned for future releases:
 
-Attach metadata to your log messages for more detailed logging:
+File Logging: Save logs to a file in a specified directory.
+Custom Log Levels: Filter logs by minimum log level (e.g., show only error and warn in production).
+Metadata Support: Attach additional data (e.g., { userId: 123 }) to log messages.
+Factory Function: Introduce a createLogger function for easier configuration.
+Browser Support: Extend compatibility to browser environments.
 
+Contributing
+Contributions are welcome! To contribute:
 
-```ecmascript 6
-logger.debug("Debugging info", { userId: 123, operation: "update" });
-logger.error("Error occurred", { errorCode: 500, errorMessage: "Internal Server Error" });
+Fork the repository on GitHub.
+Create a new branch for your changes.
+Submit a pull request with a clear description of your changes.
 
-```
+Please report bugs or suggest features by creating an issue on the GitHub repository.
+Development
+To set up the project locally:
 
-### File Logging
+Clone the repository:
+git clone https://github.com/ablfaxl/logify-fa.git
+cd logify-fa
 
-All log messages are automatically saved to the specified file in the logger directory:
+Install dependencies:
+npm install
 
-```
-[1402-12-11] [INFO]: This is an info message with Persian date
-[1402-12-11] [ERROR]: This is an error message with Persian date
-```
+Build the project:
+npm run build
 
-### Configuration
+Run tests:
+npm test
 
-Customize your logger instances based on your needs:
-
-- Log Level: Set the minimum log level to display.
-- File Path: Specify the path to the file where logs should be saved.
-
-### Contributing
-
-Contributions are welcome! If you find a bug or have a feature request, please create an issue or submit a pull request on GitHub.
-
-```dtd
-### Key Changes
-- **Creating Logger Instances**: Added a section to guide users on how to create their own logger instances using the factory function, which allows custom settings.
-- **Configuration**: Expanded the configuration section to cover more on how users can customize their logger instances.
-- **Example Code**: Updated the code examples to reflect the usage of the new logger creation approach.
-
-This updated README should help users understand how to effectively use and integrate the `Logify-fa` logging library into their projects with custom configurations.
-
-```
+License
+MIT License. See LICENSE for details.
