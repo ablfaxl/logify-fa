@@ -1,16 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5", // Set target JavaScript version
-    "module": "CommonJS", // Use common module system compatible with Node.js
-    "outDir": "./dist", // Directory to output the compiled JavaScript files
-    "rootDir": "./src", // Root directory of your TypeScript files
-    "declaration": true, // Generates corresponding '.d.ts' files for the compiled JavaScript
-    "sourceMap": true, // Generates source map files for debugging
-    "esModuleInterop": true, // Enables ES6-compatible imports
-    "strict": true // Enable all strict type-checking options
+    "target": "ES2019",
+    "module": "CommonJS",
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules"], // Exclude node_modules from compilation
-  "include": [
-    "src/**/*" // Include all files in the src directory
-  ]
+  "include": ["src"]
 }
